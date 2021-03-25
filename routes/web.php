@@ -23,6 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin', '\App\Http\Controllers\AdminController@index')->name('admin.login');
 Route::post('/admin', '\App\Http\Controllers\AdminController@login')->name('admin.login.check');
 
+
 Route::group(['middleware' => ['auth:admin, admin']], function () {
     Route::get('/admin/home', '\App\Http\Controllers\AdminController@home')->name('admin.home');
 });
